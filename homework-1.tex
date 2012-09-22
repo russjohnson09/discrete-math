@@ -13,7 +13,7 @@ Russ Johnson\\
 Homework 1\\
 \today\\
 \end{flushright}
-Define the binary relation $\sim$ on $\mathbb{Z}$ by: for all integers $a$ and $b$, $a\sim b$ if and only if $2a+3b$ is a multiple of 5. We will show that the relation $\sim$ on $\mathbb{Z}$ is an equivalence relation. This means that the binary realtion $\sim$ on $\mathbb{Z}$ is reflexive, symmetric, and transitive. We will prove that $~$ satisfies these properties on $\mathbb{Z}$ in this order.
+Define the binary relation $\sim$ on $\mathbb{Z}$ by: for all integers $a$ and $b$, $a\sim b$ if and only if $2a+3b$ is a multiple of 5. We will show that the relation $\sim$ on $\mathbb{Z}$ is an equivalence relation. This means that the binary realtion $\sim$ on $\mathbb{Z}$ is reflexive, symmetric, and transitive. We will prove that $\sim$ satisfies these properties on $\mathbb{Z}$ in this order.
 
 \begin{proof}
 Let $a$ be an arbitrary integer. The set of integers is a ring and so from the distributive property of multiplication over addition,
@@ -56,6 +56,34 @@ Because addition is commutative in a ring, from \eqref{6} we see that
 The set integers are closed under addition and so from \eqref{7} we see that $2b+3a$ is a multiple of 5. We have therefore shown that for the arbitrary integers $a$ and $b$ if $a\sim b$, then $b \sim a$. This implies that the relation $\sim$ on $\mathbb{Z}$ is symmetric.
 \end{proof}
 
+\begin{proof}
+Let $a$, $b$, and $c$ be arbitrary integers where there exist integers $m$ and $n$ such that
+\begin{equation}\label{b1}
+2a + 3b = 5m
+\end{equation}
+and
+\begin{equation}\label{b2}
+2b + 3c = 5n.
+\end{equation}
+Adding equations \eqref{b1} and \eqref{b2} together,
+\begin{equation}\label{b3}
+2a + 5b +3c = 5m + 5n.
+\end{equation}
+Applying the commutative property of addition to \eqref{b3},
+\begin{equation}\label{b4}
+2a + 3c + 5b = 5m + 5n.
+\end{equation}
+Subtracting $5b$ on \eqref{b4},
+\begin{equation}\label{b5}
+2a + 3c = 5m + 5n - 5b.
+\end{equation}
+Applying the distributive property of multiplication on \eqref{b5},
+\begin{equation}\label{b6}
+2a + 3c = 5(m+n-b)
+\end{equation}
+Integers are closed under addition and so from \eqref{b6} and the definition of multiples $2a + 3c$ is a multiple of 5. We have therefore shown that for the arbitrary integers $a$, $b$, and $c$ if $a\sim b$ and $b\sim c$, then $a\sim c$. This implies that the binary relation $\sim$ on $\mathbb{Z}$ is transitive.
+\end{proof}
+We have shown that the binary relation $\sim$ is reflexive, symmetric, and transitive on $\mathbb{Z}$ and therefore $\sim$ is an equivalence relation on $\mathbb{Z}$.
 
 
 For some background information I have been reading {\it Contemporary Abstract Algebra} by Gallian and   Aside from this, I did not use any other source.
