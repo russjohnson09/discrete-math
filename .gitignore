@@ -4,3 +4,4 @@ auto-git.py
 *.out
 *.gz
 *.log
+*.aux
