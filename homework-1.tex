@@ -1,12 +1,19 @@
-\input{preamble}
-%\usepackage{parskip}
+\documentclass[12pt]{article}
+%\usepackage{geometry}
+\usepackage[a4paper,centering,includehead]{geometry}
+%\usepackage[paperwidth=6in, paperheight=9in]{geometry} %For Book Printing
+%==============================
+\usepackage{microtype}
+%==============================
+%Math Related Packages
+\usepackage{amsmath, amsfonts, amssymb, amsthm, xfrac, mathtools}
 \begin{document}
 \begin{flushright}
 Russ Johnson\\
 Homework 1\\
 \today\\
 \end{flushright}
-Define the binary relation $\sim$ on $\mathbb{Z}$ by: for all integers $a$ and $b$, $a\sim b$ if and only if $2a+3b$ is a multiple of 5. We will show that the relation $\sim$ on $\mathbb{Z}$ is an equivalence relation. This means that the binary realtion $~$ on $\mathbb{Z}$ is reflexive, symmetric, and transitive. We will prove that $~$ satisfies these properties on $\mathbb{Z}$ in this order.
+Define the binary relation $\sim$ on $\mathbb{Z}$ by: for all integers $a$ and $b$, $a\sim b$ if and only if $2a+3b$ is a multiple of 5. We will show that the relation $\sim$ on $\mathbb{Z}$ is an equivalence relation. This means that the binary realtion $\sim$ on $\mathbb{Z}$ is reflexive, symmetric, and transitive. We will prove that $~$ satisfies these properties on $\mathbb{Z}$ in this order.
 
 \begin{proof}
 Let $a$ be an arbitrary integer. The set of integers is a ring and so from the distributive property of multiplication over addition,
@@ -14,6 +21,7 @@ Let $a$ be an arbitrary integer. The set of integers is a ring and so from the d
 2a+3a &= (2+3)a \\
 &= 5a.
 \end{align*}
+We know that $5a$ is an integer from the closure property of multiplication on the set integers. From the definition of multiples, the integer $5a$ is a multiple of 5. We have therefore shown that for an arbitrary integer $a$, $a\sim a$. This implies that the binary relation $\sim$ on $\mathbb{Z}$ is reflexive.
 \end{proof}
 
 \begin{proof}
@@ -22,13 +30,34 @@ Let $a$ and $b$ be arbitrary integers where there exists an integer $k$ such tha
 2a + 3b = 5k.
 \end{equation}
 Subtracting $5b$ from both sides of \eqref{1},
-\begin{equation}
+\begin{equation}\label{2}
 2a - 2b = 5k - 5b.
 \end{equation}
+Applying the distributive property of multiplication to \eqref{2},
+\begin{equation}\label{3}
+2(a-b) = 5(k-b).
+\end{equation}
+Now $5\nmid 2$, but $5\mid 2(a-b)$. From the Fundamental Theorem of Arithmetic and \eqref{3} we know that there exists an integer $m$ such that
+\begin{equation}\label{4}
+a-b=5m
+\end{equation}
+Adding the equations \eqref{1} and \eqref{4} together,
+\begin{equation}\label{5}
+3a + 2b = 5k + 5m.
+\end{equation}
+Applying the distributive property of multiplication to \eqref{5},
+\begin{equation}\label{6}
+3a + 2b = 5(k+m)
+\end{equation}
+Because addition is commutative in a ring, from \eqref{6} we see that
+\begin{equation}\label{7}
+2b + 3a = 5(k+m).
+\end{equation}
+The set integers are closed under addition and so from \eqref{7} we see that $2b+3a$ is a multiple of 5. We have therefore shown that for the arbitrary integers $a$ and $b$ if $a\sim b$, then $b \sim a$. This implies that the relation $\sim$ on $\mathbb{Z}$ is symmetric.
 \end{proof}
 
-We know that $5a$ is an integer from the closure property of multiplication on the set integers. From the definition of multiples, the integer $5a$ is a multiple of 5. We have therefore shown that for an arbitrary integer $a$, $a\sim a$. This implies that the binary relatiion
 
-For some background information I have been reading {\it Contemporary Abstract Algebra} by Gallian.  Aside from this, I did not use any other source.
+
+For some background information I have been reading {\it Contemporary Abstract Algebra} by Gallian and   Aside from this, I did not use any other source.
 
 \end{document}
