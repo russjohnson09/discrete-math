@@ -1,2 +1,5 @@
 auto-git.py
 *~
+*.pdf
+*.out
+*.gz
