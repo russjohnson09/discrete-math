@@ -3,57 +3,31 @@
 \begin{document}
 \begin{flushright}
 Russ Johnson\\
-Homework 4\\
+Homework 1\\
 \today\\
 \end{flushright}
-We were asked to prove the following theorem.
-\begin{thm}\label{thm:1}
-If $R$ is any commutative ring with identity $1_R$, then no element of $R$ is both a unit and a zero
-divisor.
-\end{thm}
+Define the binary relation $\sim$ on $\mathbb{Z}$ by: for all integers $a$ and $b$, $a\sim b$ if and only if $2a+3b$ is a multiple of 5. We will show that the relation $\sim$ on $\mathbb{Z}$ is an equivalence relation. This means that the binary realtion $~$ on $\mathbb{Z}$ is reflexive, symmetric, and transitive. We will prove that $~$ satisfies these properties on $\mathbb{Z}$ in this order.
+
 \begin{proof}
-We will prove Theorem \ref{thm:1} by contradiction. Therefore, we assume, to the contrary, that there exists some commutative ring $R$ with identity $ 1_R $ such that there exists some element $a$ in $R$ that is both a unit and a zero divisor. We will show that this leads to a contradiction.
-
-Because $a$ is a unit, we know from the definition of a unit that there exists some element $u$ in $R$ such that 
-\begin{equation}\label{eq:1}
-ua = 1_R.
-\end{equation}
-Because $a$ is a zero divisor, we know from the definition of a zero divisor that there exists some 
-\begin{equation}\label{eq:1.1}
-b\neq 0_R 
-\end{equation}
-in $R$ such that
-\begin{equation}\label{eq:2}
-ab=0_R.
-\end{equation}
-Multiplying by $u$ on the left side of equation \eqref{eq:2}, we obtain
-\begin{equation}\label{eq:3}
-u(ab) = u0_R.
-\end{equation}
-According to Theorem 30, for any ring and any element of that ring multiplied by that ring's additive identity will be equal to the ring's additive identity.  Because $R$ is a ring, $a$ is an element of this ring, and $0_R$ is the additive identity of $R$, the following is true
-\begin{equation}\label{eq:4}
-u0_R = 0_R.
-\end{equation}
-Using \eqref{eq:4} for substitution in \eqref{eq:3}, we obtain
-\begin{equation}\label{eq:5}
-u(ab) = 0_R.
-\end{equation}
-Applying the Associative Property of Multiplication to \eqref{eq:5}, we obtain
-\begin{equation}\label{eq:6}
-(ua)b = 0_R.
-\end{equation}
-Using \eqref{eq:1} for substitution in \eqref{eq:6}, we obtain
-\begin{equation}\label{eq:7}
-1_R b = 0_R
-\end{equation}
-Applying the Multiplicative Identity Property to \eqref{eq:7}, we obtain
-\begin{equation}\label{eq:8}
-b = 0_R. 
-\end{equation}
-From \eqref{eq:1.1} and \eqref{eq:8} we arrive at a contradiction.  Therefore, $a$ cannot be both a unit and a zero divisor.
-
-In conclusion, we have shown that if $R$ is any commutative ring with identity $1_R$, then no element of $R$ is both a unit and a zero divisor.
+Let $a$ be an arbitrary integer. The set of integers is a ring and so from the distributive property of multiplication over addition,
+\begin{align*}
+2a+3a &= (2+3)a \\
+&= 5a.
+\end{align*}
 \end{proof}
+
+\begin{proof}
+Let $a$ and $b$ be arbitrary integers where there exists an integer $k$ such that
+\begin{equation}\label{1}
+2a + 3b = 5k.
+\end{equation}
+Subtracting $5b$ from both sides of \eqref{1},
+\begin{equation}
+2a - 2b = 5k - 5b.
+\end{equation}
+\end{proof}
+
+We know that $5a$ is an integer from the closure property of multiplication on the set integers. From the definition of multiples, the integer $5a$ is a multiple of 5. We have therefore shown that for an arbitrary integer $a$, $a\sim a$. This implies that the binary relatiion
 
 For some background information I have been reading {\it Contemporary Abstract Algebra} by Gallian.  Aside from this, I did not use any other source.
 
