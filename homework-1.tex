@@ -37,9 +37,9 @@ Applying the distributive property of multiplication to \eqref{2},
 \begin{equation}\label{3}
 2(a-b) = 5(k-b).
 \end{equation}
-Now $5\nmid 2$, but $5\mid 2(a-b)$. From the Fundamental Theorem of Arithmetic and \eqref{3} we know that there exists an integer $m$ such that
+From \eqref{3} we see that $5\mid 2(a-b)$ and from this and the Fundemental Theorem of Arithmetic we know that $5\mid 2$ or $5\mid (a-b)$. Since $5 \nmid 2$ we know that $5\mid (a-b)$ and therefore there must exist some integer $m$ such that
 \begin{equation}\label{4}
-a-b=5m
+a-b=5m.
 \end{equation}
 Adding the equations \eqref{1} and \eqref{4} together,
 \begin{equation}\label{5}
@@ -47,7 +47,7 @@ Adding the equations \eqref{1} and \eqref{4} together,
 \end{equation}
 Applying the distributive property of multiplication to \eqref{5},
 \begin{equation}\label{6}
-3a + 2b = 5(k+m)
+3a + 2b = 5(k+m).
 \end{equation}
 Because addition is commutative in a ring, from \eqref{6} we see that
 \begin{equation}\label{7}
@@ -79,7 +79,7 @@ Subtracting $5b$ on \eqref{b4},
 \end{equation}
 Applying the distributive property of multiplication on \eqref{b5},
 \begin{equation}\label{b6}
-2a + 3c = 5(m+n-b)
+2a + 3c = 5(m+n-b).
 \end{equation}
 Integers are closed under addition and so from \eqref{b6} and the definition of multiples $2a + 3c$ is a multiple of 5. We have therefore shown that for the arbitrary integers $a$, $b$, and $c$ if $a\sim b$ and $b\sim c$, then $a\sim c$. This implies that the binary relation $\sim$ on $\mathbb{Z}$ is transitive.
 \end{proof}
@@ -93,9 +93,19 @@ There are five equivalences classes of the binary relation $\sim$ on $\mathbb{Z}
 [3]_\sim &= \{5x + 3: x \in \mathbb{Z}\}\\
 [4]_\sim &= \{5x + 4: x \in \mathbb{Z}\}\\
 \end{align*}
-Any other equivalnece class is equal to one of these 5. For example $[6]_\sim = [1]_\sim$.
+Any other equivalenece class is equal to one of these 5. For example $[6]_\sim = [1]_\sim$.\\
+
+\noindent 2. a) Without this change in the rules the relation is not transitive. One counter example to transitivity is that $\text{MTH } 201\sim \text{MTH } 202$ and $\text{MTH } 202 \sim \text{MTH } 329$ but $\text{MTH } 201 \nsim \text{MTH } 329$.\\
+
+\noindent c) MTH 097 is a minimal element of $(S,\preccurlyeq)$, because there is no $c\in S$ such that $c \preccurlyeq \text{MTH } 097$ and $c \neq \text{MTH } 097.$\\
+
+\noindent d) MTH 496, MTH 465, MTH 409, MTH 402, MTH 441, MTH 410, MTH 323, MTH 345, MTH 431, MTH 408, MTH 327, MTH 360, MTH 229, and MTH 329 are all maximal elements of $(S, \preccurlyeq)$. Let these maximal elements be in the set M, then the following is true. For each element $a\in M$ if $c \in S$ and $a \preccurlyeq c$, then $c = a$.  This implies that each of these elements are maximal elements.\\
+
+\noindent e) There is a maximum element $(S,\preccurlyeq)$ if and only if there exists exactly one maximal element $(S,\preccurlyeq)$. This is not true for $(S,\preccurlyeq)$ and so there is no maximum element.\\
+
+\noindent f) There is a minimum element in $(S,\preccurlyeq)$ if and only if there exists exactly one minimal element in $(S,\preccurlyeq)$. This minimum element is MTH 097.\\
 
 
-For some background information I have been reading {\it Contemporary Abstract Algebra} by Gallian and   Aside from this, I did not use any other source.
+For some background information I have been reading {\it Contemporary Abstract Algebra} by Gallian. Aside from this, I did not use any other outside source.
 
 \end{document}
