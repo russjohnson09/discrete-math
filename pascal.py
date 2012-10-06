@@ -31,7 +31,6 @@ def pascal_latex(n, out=sys.stdout):
     """
     out.write('\\begin{tabular}{r%s}\n' % ('c' * (2 * n + 1)))
     for i, row in enumerate(pascal(n)):
-        out.write('$n=%d$:& ' % i)
         out.write('   & ' * (n - i))
         out.write(' &    & '.join ('%2d' % coeff for coeff in row))
         out.write('\\\\\\noalign{\\smallskip\\smallskip}\n')
