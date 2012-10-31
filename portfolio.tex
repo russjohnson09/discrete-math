@@ -1,0 +1,159 @@
+\documentclass[11pt,openany]{book}
+
+\usepackage{color}
+\usepackage{xcolor}
+\usepackage{listings}
+\usepackage{courier}
+\usepackage{changepage}
+
+%==============================
+%Math Related Packages
+\usepackage{amsmath, amsfonts, amssymb, amsthm, xfrac, mathtools}
+%==============================
+\usepackage{framed}
+%==============================
+\usepackage{pdflscape}
+%==============================
+% For more complex numbering
+%\usepackage{enumitem}
+\usepackage{enumerate}
+\usepackage{mdwlist}
+%==============================
+%For Importing inkscape svg files with latex font.
+\usepackage{import}
+%==============================
+%Table Related
+\usepackage{multirow, multicol, tabularx, longtable}
+\usepackage[tableposition=below]{caption}
+\captionsetup[longtable]{skip=1em}
+%==============================
+%Colors and Graphics
+\usepackage{color}
+\usepackage{graphicx}
+%Hyperref
+\usepackage[unicode=true, pdfusetitle,
+ bookmarks=true,bookmarksnumbered=false,bookmarksopen=false,
+ breaklinks=false,pdfborder={0 0 0},backref=false,colorlinks=false]
+ {hyperref}
+\usepackage{cite}
+\usepackage{makeidx}
+\usepackage{tocloft}
+\usepackage{tikz}
+%==============================
+
+% Setup for listings
+%==============================
+\definecolor{javared}{rgb}{0.6,0,0} % for strings
+\definecolor{javagreen}{rgb}{0.25,0.5,0.35} % comments
+\definecolor{javapurple}{rgb}{0.5,0,0.35} % keywords
+\definecolor{javadocblue}{rgb}{0.25,0.35,0.75} % javadoc
+
+\lstset{language=python,
+basicstyle=\small\ttfamily,
+xleftmargin=0cm,
+keywordstyle=\color{javapurple}\bfseries,
+stringstyle=\color{javared},
+commentstyle=\color{javagreen},
+tabsize=4,
+showspaces=false,
+showstringspaces=false}
+%==============================
+
+%==============================
+\title{{\bf MTH 345 Portfolio}}
+\author{Russ Johnson\\
+Grand Valley State University\\
+Allendale, MI\\
+\url{russjohnson09@gmail.com}\\
+}
+\date{\today}
+%==============================
+
+\begin{document}
+
+\chapter{Problem 1}
+
+
+
+\chapter{Problem 2}
+
+How many integers less than 9975 are relative prime to 9975?
+
+First we note that
+\[9975 = 3\cdot 5^2 \cdot 7 \cdot 19\]
+and that 3, 5, and 19 are all primes. Now we now that an integer $n$ is not relatively prime to 9975 if the $(9975,n)=1$. This is true if and only if 9975 and $n$ do not share prime factors. We will count all of the integers less than 9975 that are not relatively prime to 9975 by counting all of the integers less than 9975 that are multiples of 3, 5, 7, or 19. These sets are $A$, $B$, $C$, and $D$ respectively.
+
+
+\[|A\cup B \cup C\cup D|=\]
+\[|A| + |B| + |C| + |D| - (|A\cap B|+|A\cap C|+|A\cap D|+|B\cap C|+|C\cap D|)+|A\cap B\cap C|+\]
+\[|A\cap B\cap D|+|B\cap C\cap D| -|A\cap B\cap C\cap D|\]
+\begin{center}
+$
+\begin{array}{rll}
+|A| &= 9975/3&=3325\\
+|B| &= 9975/5&=1995\\
+|C| &= 9975/7&=1425\\
+|D| &= 9975/19&=525\\
+\end{array}
+$
+\end{center}
+
+
+\begin{center}
+$
+\begin{array}{rlll}
+|A\cap B| &= 9975/lcm(3,5)&=9975/15&=665\\
+|A\cap C| &= 9975/lcm(3,7)&=9975/21&=475\\
+|A\cap D| &= 9975/lcm(3,19)&=9975/57&=175\\
+|B\cap C| &= 9975/lcm(5,7)&=9975/35&=285\\
+|B\cap D| &= 9975/lcm(5,19)&=9975/95&=105\\
+|C\cap D| &= 9975/lcm(7,19)&=9975/133&=75\\
+\end{array}
+$
+\end{center}
+
+\begin{center}
+$
+\begin{array}{rlll}
+|A\cap B\cap C| &= 9975/lcm(3,5,7)&=9975/105&=95\\
+|A\cap B\cap D| &= 9975/lcm(3,5,19)&=9975/285&=35\\
+|A\cap C\cap D| &= 9975/lcm(3,7,19)&=9975/399&=25\\
+|B\cap C\cap D| &= 9975/lcm(5,7,19)&=9975/665&=15\\
+\end{array}
+$
+\end{center}
+Finally we have
+\[|A\cap B\cap C\cap D| = 9975/lcm(3,5,7, 19)=9975/1995=5\]
+
+\[3325+1995+1425+525 - (665+475+175+285+105+75) +95+35+25+15-5 = 5655\]
+\[9975 - 5655 = 4320 \]
+
+Here is a program written in python that confirms my result.
+\begin{lstlisting}
+count = 0
+for i in range(1,9976):
+    if (i%3 != 0 and i%5 != 0 and i%7 != 0 and i%19 != 0):
+        count += 1
+print count
+\end{lstlisting}
+When run goes through all of the numbers 1 through 9975 and if a number is not a multiple of any of 9975's prime factors than the count is incremented by one. It outputs 4320 which is the some solution we found using the inclusion-exclusion property.
+
+\end{document}
+
+count=0; for ((i=1; i<=9975; i++)); do if (( ("$i" % 3 ) != "0" )) && ((("$i" % 5) != "0")) && ((("$i" % 7) != "0")) && ((("$i" % 19) != "0")); then let "count++"; fi; done; echo "$count"
+
+
+\[|A\cup B \cup C\cup D| = |A| + |B| + |C| + |D| - (|A\cap B|+|A\cap C|+|A\cap D|+|B\cap C|+|C\cap D|)+|A\cap B\cap C|+|A\cap B\cap D|+|B\cap C\cap D| -|A\cap B\cap C\cap D|\]
+
+
+\[|A| = 9975/3=3325\]
+\[|B| = 9975/5=1995\]
+\[|C| = 9975/7=1425\]
+\[|D| = 9975/19=525\]
+
+\[|A\cap B| = 9975/lcm(3,5)=9975/15=665\]
+\[|A\cap C| = 9975/lcm(3,7)=9975/21=475\]
+\[|A\cap D| = 9975/lcm(3,19)=9975/57=175\]
+\[|B\cap C| = 9975/lcm(5,7)=9975/35=285\]
+\[|B\cap D| = 9975/lcm(5,19)=9975/95=105\]
+\[|C\cap D| = 9975/lcm(7,19)=9975/133=75\]

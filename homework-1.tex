@@ -7,57 +7,71 @@
 %==============================
 %Math Related Packages
 \usepackage{amsmath, amsfonts, amssymb, amsthm, xfrac, mathtools}
+\newtheorem{thm}{Theorem}
 \begin{document}
 \begin{flushright}
 Russ Johnson\\
 Homework 1\\
 \today\\
 \end{flushright}
-Define the binary relation $\sim$ on $\mathbb{Z}$ by: for all integers $a$ and $b$, $a\sim b$ if and only if $2a+3b$ is a multiple of 5. We will show that the relation $\sim$ on $\mathbb{Z}$ is an equivalence relation. This means that the binary relation $\sim$ on $\mathbb{Z}$ is reflexive, symmetric, and transitive. We will prove that $\sim$ satisfies these properties on $\mathbb{Z}$ in this order.
+Let $\sim$ be a binary relation on $\mathbb{Z}$ defined: for all integers $a$ and $b$, $a\sim b$ if and only if $2a+3b$ is a multiple of 5. We will show that the relation $\sim$ on $\mathbb{Z}$ is an equivalence relation. This means that the binary relation $\sim$ on $\mathbb{Z}$ is reflexive, symmetric, and transitive. We will prove that $\sim$ satisfies these properties on $\mathbb{Z}$ in this order.
 
+\begin{thm}
+The binary relation $\sim$ on $\mathbb{Z}$ satisfies the reflexive property.
+\end{thm}
 \begin{proof}
-Let $a$ be an arbitrary integer. The set of integers is a ring and so from the distributive property of multiplication over addition,
+Let $a$ be an arbitrary integer. We will prove that $a\sim a$. The set of integers is a ring and so from the Distributive Property of Multiplication over Addition we obtain
 \begin{align*}
 2a+3a &= (2+3)a \\
 &= 5a.
 \end{align*}
-We know that $5a$ is an integer from the closure property of multiplication on the set integers. From the definition of multiples, the integer $5a$ is a multiple of 5. We have therefore shown that for an arbitrary integer $a$, $a\sim a$. This implies that the binary relation $\sim$ on $\mathbb{Z}$ is reflexive.
+We know that $5a$ is an integer from the closure property of multiplication on the set integers. From the definition of multiples, the integer $5a$ is a multiple of 5. 
+
+We have therefore shown that for an arbitrary integer $a$, $a\sim a$, which means that the binary relation $\sim$ on $\mathbb{Z}$ is reflexive.
 \end{proof}
 
+\begin{thm}
+The binary relation $\sim$ on $\mathbb{Z}$ satisfies the symmetric property.
+\end{thm}
 \begin{proof}
-Let $a$ and $b$ be arbitrary integers where there exists an integer $k$ such that
+Let $a$ and $b$ be arbitrary integers such that $a\sim b$. From the definition of $a\sim b$ there exists some integer $k$ such that
 \begin{equation}\label{1}
 2a + 3b = 5k.
 \end{equation}
-Subtracting $5b$ from both sides of \eqref{1},
+Subtracting $5b$ from both sides of \eqref{1} we obtain
 \begin{equation}\label{2}
 2a - 2b = 5k - 5b.
 \end{equation}
-Applying the distributive property of multiplication to \eqref{2},
+Applying the Distributive Property of Multiplication over Subtraction to \eqref{2} we obtain
 \begin{equation}\label{3}
 2(a-b) = 5(k-b).
 \end{equation}
-From \eqref{3} we see that $5\mid 2(a-b)$ and from this and the Fundemental Theorem of Arithmetic we know that $5\mid 2$ or $5\mid (a-b)$. Since $5 \nmid 2$ we know that $5\mid (a-b)$ and therefore there must exist some integer $m$ such that
+From \eqref{3} we see that $5\mid 2(a-b)$. Now, 5 is a prime number and 2 and $a-b$ are both integers from the closure properties of the set of all integers. We also know that if a prime divides the product of two integers, it must divide the first integer, the second integer, or both. We know that $5 \nmid 2$ and so it must be the case that $5\mid (a-b)$. From the definition of divides there must exist some integer $m$ such that
 \begin{equation}\label{4}
 a-b=5m.
 \end{equation}
-Adding the equations \eqref{1} and \eqref{4} together,
+Adding the equations \eqref{1} and \eqref{4} together we obtain
 \begin{equation}\label{5}
 3a + 2b = 5k + 5m.
 \end{equation}
-Applying the distributive property of multiplication to \eqref{5},
+Applying the Distributive Property of Multiplication over Addition to \eqref{5} we obtain
 \begin{equation}\label{6}
 3a + 2b = 5(k+m).
 \end{equation}
-Because addition is commutative in a ring, from \eqref{6} we see that
+Because addition is commutative in a ring (the set of all integers is a ring), from \eqref{6} we see that
 \begin{equation}\label{7}
 2b + 3a = 5(k+m).
 \end{equation}
-The set of integers is closed under addition and so from \eqref{7} we see that $2b+3a$ is a multiple of 5. We have therefore shown that for the arbitrary integers $a$ and $b$ if $a\sim b$, then $b \sim a$. This implies that the relation $\sim$ on $\mathbb{Z}$ is symmetric.
+The set of integers is closed under addition and so $k+m$ is an integer. From this fact and \eqref{7} we see that $2b+3a$ is a multiple of 5. 
+
+We have therefore shown that for the arbitrary integers $a$ and $b$ if $a\sim b$, then $b \sim a$. This means that the relation $\sim$ on $\mathbb{Z}$ is symmetric.
 \end{proof}
 
+\begin{thm}
+The binary relation $\sim$ on $\mathbb{Z}$ satisfies the transitive property.
+\end{thm}
 \begin{proof}
-Let $a$, $b$, and $c$ be arbitrary integers where there exist integers $m$ and $n$ such that
+Let $a$, $b$, and $c$ be arbitrary integers such that $a\sim b$ and $b\sim c$. We will prove that $a\sim c$. We know from $a\sim b$ and $b\sim c$ that there exist some integers $m$ and $n$
 \begin{equation}\label{b1}
 2a + 3b = 5m
 \end{equation}
@@ -65,15 +79,15 @@ and
 \begin{equation}\label{b2}
 2b + 3c = 5n.
 \end{equation}
-Adding equations \eqref{b1} and \eqref{b2} together,
+Adding equations \eqref{b1} and \eqref{b2} together we obtain
 \begin{equation}\label{b3}
 2a + 5b +3c = 5m + 5n.
 \end{equation}
-Applying the commutative property of addition to \eqref{b3},
+Applying the Commutative Property of Addition to \eqref{b3} we obtain
 \begin{equation}\label{b4}
 2a + 3c + 5b = 5m + 5n.
 \end{equation}
-Subtracting $5b$ on \eqref{b4},
+Subtracting $5b$ on \eqref{b4} we obtain
 \begin{equation}\label{b5}
 2a + 3c = 5m + 5n - 5b.
 \end{equation}
@@ -81,19 +95,27 @@ Applying the distributive property of multiplication on \eqref{b5},
 \begin{equation}\label{b6}
 2a + 3c = 5(m+n-b).
 \end{equation}
-Integers are closed under addition and so from \eqref{b6} and the definition of multiples $2a + 3c$ is a multiple of 5. We have therefore shown that for the arbitrary integers $a$, $b$, and $c$ if $a\sim b$ and $b\sim c$, then $a\sim c$. This implies that the binary relation $\sim$ on $\mathbb{Z}$ is transitive.
-\end{proof}
-We have shown that the binary relation $\sim$ is reflexive, symmetric, and transitive on $\mathbb{Z}$ and therefore $\sim$ is an equivalence relation on $\mathbb{Z}$.
+The set of integers is closed under addition and so $m+n-b$ is an integer. From this fact, \eqref{b6}, and the definition of multiples $2a + 3c$ is a multiple of 5 and so $a\sim c$.
 
+In conclusion, we have shown that for the arbitrary integers $a$, $b$, and $c$ if $a\sim b$ and $b\sim c$, then $a\sim c$. This means that the binary relation $\sim$ on $\mathbb{Z}$ is transitive.
+\end{proof}
+
+Finally, from theorems 1, 2, and 3 we have shown that the binary relation $\sim$ is reflexive, symmetric, and transitive on $\mathbb{Z}$. Therefore, $\sim$ is an equivalence relation on $\mathbb{Z}$.
+
+\newpage
 There are five equivalences classes of the binary relation $\sim$ on $\mathbb{Z}$.
 \begin{align*}
-[0]_\sim &= \{5x: x \in \mathbb{Z}\}\\
-[1]_\sim &= \{5x + 1: x \in \mathbb{Z}\}\\
-[2]_\sim &= \{5x + 2: x \in \mathbb{Z}\}\\
-[3]_\sim &= \{5x + 3: x \in \mathbb{Z}\}\\
-[4]_\sim &= \{5x + 4: x \in \mathbb{Z}\}\\
+\overline{0} &= \{5x: x \in \mathbb{Z}\}\\
+\overline{1} &= \{5x + 1: x \in \mathbb{Z}\}\\
+\overline{2} &= \{5x + 2: x \in \mathbb{Z}\}\\
+\overline{3} &= \{5x + 3: x \in \mathbb{Z}\}\\
+\overline{4} &= \{5x + 4: x \in \mathbb{Z}\}\\
 \end{align*}
-Any other equivalenece class is equal to one of these 5. For example $[6]_\sim = [1]_\sim$.\\
+Any other equivalence class is equal to one of these 5. For example $\overline{5} = \overline{0}$. This is do to the fact that the binary relation $\sim$ on $\mathbb{Z}$ is symmetric. The integer 0 is related to 5 and so 5 is related to 0.
+
+Another way of looking at this is that when we talk about the equivalence class $\overline{a}$, $a$ is referred to as the representative of the equivalence class. In truth, any element in the set $\overline{a}$ can be used as a representative for that equivalence class. This means that for all elements $b \in \overline{a}$, $\overline{a}=\overline{b}$. Because $\overline{0}\cup\overline{1}\cup\overline{2}\cup\overline{3}\cup\overline{4} = \mathbb{Z}$, there are no other equivalence classes. That is, there does not exist an integer that is not in the set of all integers. Also, for any two of these equivalence classes, their intersection is equal to the null set. This is because if their were a common element they would necessarily be the same class.
+
+\newpage
 
 \noindent 2. a) Without this change in the rules the relation is not transitive. One counter example to transitivity is that $\text{MTH } 201\sim \text{MTH } 202$ and $\text{MTH } 202 \sim \text{MTH } 329$ but $\text{MTH } 201 \nsim \text{MTH } 329$.\\
 
