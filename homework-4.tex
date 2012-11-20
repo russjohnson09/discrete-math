@@ -1,0 +1,73 @@
+\documentclass[12pt]{article}
+%\usepackage{geometry}
+\usepackage[a4paper,centering,includehead]{geometry}
+%\usepackage[paperwidth=6in, paperheight=9in]{geometry} %For Book Printing
+\usepackage{changepage}
+\usepackage{color}
+\usepackage[usenames,dvipsnames,svgnames,table]{xcolor}
+%==============================
+\usepackage{microtype}
+%==============================
+%Math Related Packages
+\usepackage{amsmath, amsfonts, amssymb, amsthm, xfrac, mathtools}
+
+\newtheorem{thm}{Theorem}
+
+\begin{document}
+\begin{flushright}
+Russ Johnson\\
+Homework 4\\
+\today\\
+\end{flushright}
+
+\noindent Consider the following:
+\begin{quote}
+Cameron has vowed to increase his vocabulary by learning the meanings of 90 new words over the course of 53 days learning at least one new word each day.
+\end{quote}
+
+\begin{thm}
+Over some span of consecutive days, Cameron will learn exactly 15 new words.
+\end{thm}
+
+\begin{proof}
+We will prove this theorem directly using the Pigeon-hole Principle. Let $a_i$ be the words learned up until and including the $i^{th}$ day. We know that
+\begin{equation}\label{1}
+1 \leq a_1
+\end{equation}
+because each day Cameron learns at least one word. From this same fact we know that
+\begin{equation}\label{2}
+a_j < a_{j+1}
+\end{equation}
+for all $j\in\{x\in \mathbb{Z}:0<x<53\}$.
+Also since Cameron learns 90 words by the end,
+\begin{equation}\label{3}
+a_{53} = 90
+\end{equation}
+From \eqref{1}, \eqref{2}, and \eqref{3}, we can conclude
+\begin{equation}\label{4}
+1 \leq a_1 < a_2 < a_3 < \cdots < a_{53} \leq 90.
+\end{equation}
+Adding 15 to each part of \eqref{4}, we obtain
+\begin{equation}\label{5}
+16 \leq a_1+15 < a_2+15 < a_3+15 < \cdots < a_{53}+15 \leq 105.
+\end{equation}
+Let the set $A = \{a_1,a_2,\ldots,a_{53},a_1+15,a_2+15,\ldots,a_{53}+15\}$. Now we see that 
+\begin{equation}\label{6}
+|A| = 106
+\end{equation}
+We will now use the Pigeon-hole Principle for this last part. From \eqref{4} and \eqref{5} we see that we can use the numbers 1 through 105 as the boxes. We will use the elements in $A$ as the objects. From \eqref{6} we see that there are more objects than boxes and so there most exist two integers $m$ and $n$ such that
+\begin{equation}\label{7}
+a_m = a_n+15.
+\end{equation}
+Subtracting $a_n$ from both sides of \eqref{7} we obtain
+\begin{equation}\label{8}
+a_m-a_n = 15.
+\end{equation}
+From \eqref{8} we see that from the $n^{th}$ day to the $m^{th}$ day Cameron learned 15 new words.
+
+In conclusion, we have shown that there exists some span of consecutive days during which Cameron learns exactly 15 words.
+
+\end{proof}
+
+
+\end{document}
