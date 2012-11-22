@@ -1,4 +1,5 @@
-\documentclass[11pt,openany]{book}
+\documentclass{article}
+%\documentclass[11pt,openany]{book}
 
 \usepackage{color}
 \usepackage{xcolor}
@@ -9,8 +10,10 @@
 %==============================
 %Math Related Packages
 \usepackage{amsmath, amsfonts, amssymb, amsthm, xfrac, mathtools}
+\newtheorem{thm}{Theorem}
 %==============================
 \usepackage{framed}
+\usepackage{graphicx}
 %==============================
 \usepackage{pdflscape}
 %==============================
@@ -71,11 +74,14 @@ Allendale, MI\\
 
 \begin{document}
 
-\chapter{Problem 1}
+\maketitle
+\newpage
+
+\section*{Problem 1}
 
 
 
-\chapter{Problem 2}
+\section*{Problem 2}
 
 How many integers less than 9975 are relative prime to 9975?
 
@@ -128,7 +134,7 @@ Finally we have
 \[3325+1995+1425+525 - (665+475+175+285+105+75) +95+35+25+15-5 = 5655\]
 \[9975 - 5655 = 4320 \]
 
-Here is a program written in python that confirms my result.
+Here is a program written in python that confirms this result.
 \begin{lstlisting}
 count = 0
 for i in range(1,9976):
@@ -138,6 +144,102 @@ print count
 \end{lstlisting}
 When run goes through all of the numbers 1 through 9975 and if a number is not a multiple of any of 9975's prime factors than the count is incremented by one. It outputs 4320 which is the some solution we found using the inclusion-exclusion property.
 
+\section*{Problem 3}
+
+\section*{Problem 4}
+Suppose a case-insensitive computer password consists of seven characters (which can be letters of the English alphabet or base ten digits). The vowels are a,e,i,o, and u.
+
+\noindent a) How many passwords contain exactly one L, exactly two vowels, and exactly three digits?
+\[ 1\cdot\binom 7 1 \cdot 5^2\cdot\binom 6 2 \cdot 10^3 \cdot \binom 4 3 \cdot 20 \cdot \binom 1 1 = \]
+\subsection*{Explanation}
+First we select the L and choose one of the seven locations within the password. Next we select the two vowels, allowing for repetition and order is important. We choose two spots for these two vowels out of the six remaining. Next we select three digits, allowing for repetition and order is important. We choose three spots for these two vowels out of the four remaining. Finally we choose one of the 20 remaining characters (we do not include the L, the vowels, or any of the digits). We place this character in the last position.
+
+\noindent b) 
+
+
+\section*{Problem 5}
+The following is the conflict graph for this situation.
+\begin{table}\caption{Legend}
+\centering
+\begin{tabular}{|l|l|}\hline
+{\bf Class} & {\bf Abbreviation}\\\hline
+Cryptology & Cr\\\hline
+Number Theory & N\\\hline
+Geometry & G\\\hline
+History of Math & H\\\hline
+Teaching Fractions & F\\\hline
+Calculus & C\\\hline
+\end{tabular}
+\end{table}
+\begin{center}
+\includegraphics[scale=0.6]{conflict_graph.pdf}
+\end{center}
+
+We need three colors for this conflict graph and so we need to spread the seminars over three weeks to avoid conflicts.
+
+~
+
+\noindent Week 1: Cryptology and Calculus\\
+Week 2: Number Theory, Geometry, and History of Math\\
+Week 3: Teaching Fractions
+
+\section*{Problem 6}
+
+\section*{Problem 7}
+
+\begin{thm}\label{t7}
+The complement of a disconnected graph is connected.
+\end{thm}
+
+\begin{proof}
+Let $G=(V,E)$ be an arbitrary disconnected graph. We will prove that its complement $\overline G$ is connected. Let $v_1$ and $v_2$ be arbitrary vertices in $V$. We will prove that this vertices are connected on the graph $\overline G$ using two cases. Either $v_1$ and $v_2$ are not connected or are connected on $G$.
+
+Case 1: Let $v_1$ and $v_2$ be disconnected on $G$. If $v_1$ and $v_2$ are not connected on $G$ then they are also not adjacent. If they are not adjacent on $G$ then from the definition of a complementary graph we know that $v_1$ and $v_2$ are adjacent on $\overline G$. The adjacent vertices $v_1$ and $v_2$ on $\overline G$ are connected by edge $v_1v_2$.
+
+Case2: Let $v_1$ and $v_2$ be connected on $G$. Because $G$ is a disconnected graph, we know that there most exist some vertex $v_3$ in $V$ that is not connected to $v_1$ or $v_2$. From the definition of a complementary graph we know that both of the vertices $v_1$ and $v_2$ are connected to $v_3$ on $\overline G$. They are therefore connected to each other via the edges $v_1v_3$ and $v_3v_2$.
+
+In conclusion we have shown that the arbitrary vertices $v_1$ and $v_2$ are connected on the complement of the disconnected graph $G$. Because each pair of vertices is connected, $G$'s complement must be a connected graph.
+\end{proof}
+
+The converse of Theorem \ref{t7} is not true. A simple counterexample requires a graph with just four vertices and its complement.
+
+%\begin{adjustwidth}{-1cm}{}
+\begin{center}
+\includegraphics[scale=0.25]{graph_theory.pdf}
+\end{center}
+%\end{adjustwidth}
+
+As you can see both the graph $G$ and its complement $\overline G$ are connected.
+
+\section*{Problem 8}
+Let $G=(V,E)$ with $|V| = n$. In other words $G$ is a graph of order $n$. The following is the commmonly called the First Theorem of Graph Theory:
+\begin{thm}
+$\displaystyle \sum\limits_{v\in V} deg(v) = 2|E| $
+\end{thm}
+
+Now, the underlying graph of the digraph commonly called a tournament with $n$ vertices is the complete graph $K_n$. This graph has $\binom n 2$ edges. Therefore, from the First Theorem of Graph Theory, we see that the sum of the degrees of the vertices of the complete graph $K_n$ is $n^2-n$. The sum of the indegrees and outdegrees of all of the vertices in a tournament with $n$ vertices is equal to the sum of the degrees of the vertices in the complete graph $K_n$. The sum of the indegrees of the vertices and the sum of the outdegrees of the vertices in a tournament are also equal to each other.
+
+From the above we are able to come up with some of the reasoning behind the following theorem. Let $T=(V,E)$ be a touranment with $|V| = n$.
+\begin{thm}\label{t8}
+\[\sum\limits_{v\in V} indeg(v) = \sum\limits_{v\in V} outdeg(v) = |E|\]
+\end{thm}
+
+\begin{proof}
+To prove Theorem \ref{t8} we look at the indegrees and outdegrees of the vertices on one arc. If the sum of the indegrees and outdegrees of the vertices on this arbitrary arc are both equal to some constant $c$, we have proven that \[ \sum\limits_{v\in V} indeg(v) = \sum\limits_{v\in V} outdeg(v) = c\cdot |E|.\]
+So if we can prove that this constant $c$ is equal to one we have proven Theorem \ref{t8}.
+
+Let $T=(V,E)$ be a tournament and let $v_1$ and $v_2$ be some pair of vertices connected by some arc. We will show that
+\[indeg(v_1)+indeg(v_2)=outdeg(v_1)+outdeg(v_2)=1.\]
+
+From the definition of a tournament the arc connecting $v_1$ and $v_2$ is either $v_1v_2$ or $v_2v_1$. Without loss of generality we assume that the arc connecting the two vertices is $v_1v_2$. From this we know that
+\[indeg(v_1)+indeg(v_2)=1\]
+\[outdeg(v_1)+outdeg(v_2)=1\]
+and so
+\[indeg(v_1)+indeg(v_2)=outdeg(v_1)+outdeg(v_2)=1.\]
+
+In conclusion, we have shown that for an arbitrary set of vertices connected by an arc the sum of the outdegrees and the sum of the indegrees of the vertices are both equal to one. From this we can multiply by the number of arcs in the tournament to get the sum of the indegrees and outdegrees of the vertices in the tournament $T$.
+From this 
+\end{proof}
 \end{document}
 
 count=0; for ((i=1; i<=9975; i++)); do if (( ("$i" % 3 ) != "0" )) && ((("$i" % 5) != "0")) && ((("$i" % 7) != "0")) && ((("$i" % 19) != "0")); then let "count++"; fi; done; echo "$count"
